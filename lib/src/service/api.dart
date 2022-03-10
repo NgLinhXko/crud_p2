@@ -12,13 +12,13 @@ const BASEURL = "http://$SERVER_NAME:3000/user";
 
 class API{
   static Future<bool> createPost(Data post) async{
-  final response = await http.post(Uri.parse('https://run.mocky.io/v3/06f3e06e-73fc-4ce7-913c-f7e3baf70af3'),body:post.toJson());
+  final response = await http.post(Uri.parse('https://run.mocky.io/v3/c97b3cab-4586-4813-a15a-39997a0791e3'),body:post.toJson());
   print(response.statusCode);
-  if(response.statusCode==200){
-    return true;
+  if(response.statusCode==201){
+    return false;
   }
   else{
-    return false;
+    return true;
   }
 }
 
