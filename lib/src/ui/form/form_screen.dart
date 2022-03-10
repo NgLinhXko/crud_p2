@@ -16,9 +16,9 @@ class FormScreen extends StatefulWidget {
 }
 
 class _FormScreenState extends State<FormScreen> {
-  TextEditingController _controllerFullName = TextEditingController();
-  TextEditingController _controllerEmail = TextEditingController();
-  TextEditingController _controllerMobile = TextEditingController();
+  final TextEditingController _controllerFullName = TextEditingController();
+  final TextEditingController _controllerEmail = TextEditingController();
+  final TextEditingController _controllerMobile = TextEditingController();
   @override
   void initState(){
     _controllerFullName.text = widget.fullname.toString();

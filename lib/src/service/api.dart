@@ -12,7 +12,7 @@ const BASEURL = "http://$SERVER_NAME:3000/user";
 
 class API{
   static Future<bool> createPost(Data post) async{
-  final response = await http.post(Uri.parse(BASEURL),body:post.toJson());
+  final response = await http.post(Uri.parse('https://run.mocky.io/v3/06f3e06e-73fc-4ce7-913c-f7e3baf70af3'),body:post.toJson());
   print(response.statusCode);
   if(response.statusCode==200){
     return true;
@@ -22,18 +22,22 @@ class API{
   }
 }
 
-  static Future<List<Data>?> getPosts() async{
+ static Future<List<Data>?> getPosts() async{
+    ///TODO khởi tạo đối tượng
     List<Data> ?data;
     try{
-      final response = await http.get(Uri.parse(BASEURL));
+      ///Gửi yêu cầu HTTP GET với các tiêu đề đã cho đến URL đã cho.
+      ///Khởi tạo 1 client và đóng khi nó hoàn thành
+      final response = await http.get(Uri.parse('https://run.mocky.io/v3/61e63fd5-dd51-4c58-b424-ec2a5720828a'));
+      ///Phân tích cú pháp chuỗi và trả về đối tượng Json kết quả.
       Map<String, dynamic> mapResponse = json.decode(response.body);
+      ///Json to object
       PostModel postModel=PostModel.fromJson(mapResponse);
       data=postModel.data;
       return data;
     }catch(e){
       print('error $e');
       return null;
-
     }
 
 //   if(response.statusCode == 200){
